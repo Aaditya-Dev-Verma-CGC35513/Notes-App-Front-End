@@ -166,7 +166,7 @@ function Signup() {
             size={25}
             className={`${
               isPasswordVisible ? "hidden" : "block"
-            } icon translate-y-[106px]`}
+            } icon translate-y-[46px]`}
             onClick={() => {
               setIsPasswordVisible(!isPasswordVisible);
             }}
@@ -175,7 +175,7 @@ function Signup() {
             size={25}
             className={`${
               isPasswordVisible ? "block" : "hidden"
-            } icon translate-y-[73px]`}
+            } icon translate-y-[46px]`}
             onClick={() => {
               setIsPasswordVisible(!isPasswordVisible);
             }}

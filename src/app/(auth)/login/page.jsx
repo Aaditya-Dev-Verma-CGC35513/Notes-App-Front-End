@@ -146,7 +146,7 @@ function Login() {
             size={25}
             className={`${
               isPasswordVisible ? "hidden" : "block"
-            } icon translate-y-7`}
+            } icon -translate-y-8`}
             onClick={() => {
               setIsPasswordVisible(!isPasswordVisible);
             }}
@@ -155,7 +155,7 @@ function Login() {
             size={25}
             className={`${
               isPasswordVisible ? "block" : "hidden"
-            } icon -translate-y-[5px]`}
+            } icon -translate-y-8`}
             onClick={() => {
               setIsPasswordVisible(!isPasswordVisible);
             }}
