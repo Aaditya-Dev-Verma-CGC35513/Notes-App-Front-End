@@ -96,8 +96,10 @@ function Home() {
       toast.error("You are not logged in");
       return;
     };
+    setNotes([]);
     localStorage.removeItem("access_token");
     toast.success("User logged out successfully");
+    notes.
     router.push("/login");
   }
   return (
