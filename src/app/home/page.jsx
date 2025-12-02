@@ -99,7 +99,6 @@ function Home() {
     setNotes([]);
     localStorage.removeItem("access_token");
     toast.success("User logged out successfully");
-    notes.
     router.push("/login");
   }
   return (
