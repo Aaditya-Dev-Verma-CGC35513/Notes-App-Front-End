@@ -1,43 +1,33 @@
 "use client";
-
-import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
-export const dynamic = "force-dynamic"; // prevent prerendering
-
-export default function VerifyEmailPage() {
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token");
+function VerifyEmail({searchParams}) {
+  const token = searchParams.token;
   const [isProcessing, setIsProcessing] = useState(true);
   const router = useRouter();
-
   useEffect(() => {
-    if (!token) {
-      toast.error("Token not found");
-      setIsProcessing(false);
-      return;
-    }
-
-    async function verifyToken() {
+    async function fetchUserFromToken() {
       try {
-        const res = await axios.post(
+        const verifyUserFromToken = await axios.post(
           `${process.env.NEXT_PUBLIC_USERS_API_URL}/verify-user`,
-          { token }
+          {token},
         );
-        toast.success(res.data.message);
-      } catch (err) {
-        if (err.response) toast.error(err.response.data.detail);
-        else toast.error(err.message);
-      } finally {
+        
+        toast.success(verifyUserFromToken.data.message);
         setIsProcessing(false);
+      } catch (error) {
+        if (error.response) {
+          toast.error(error.response.data.detail);
+        } else {
+          toast.error(error.message);
+        }
       }
     }
-
-    verifyToken();
-  }, [token]);
-
+    fetchUserFromToken();
+  }, []);
   return (
     <div className="min-h-screen flex justify-center items-center">
       {isProcessing ? (
@@ -57,3 +47,5 @@ export default function VerifyEmailPage() {
     </div>
   );
 }
+
+export default VerifyEmail;
