@@ -31,7 +31,7 @@ function VerifyEmail() {
     fetchUserFromToken();
   }, []);
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="min-h-screen flex justify-center items-center">
         {isProcessing ? (
           <h1 className="text-4xl font-extrabold md:text-5xl lg:text-6xl text-center leading-tight">
