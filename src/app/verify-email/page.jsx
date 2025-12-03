@@ -1,15 +1,24 @@
 "use client";
+
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-function VerifyEmail({searchParams}) {
-  const token = searchParams.token;
+function VerifyEmail() {
   const [isProcessing, setIsProcessing] = useState(true);
   const router = useRouter();
+  const [token, setToken] = useState("");
+  useEffect(() => {
+      const params = new URLSearchParams(window.location.search)
+      setToken(params.get("token"));
+
+  },[])
   useEffect(() => {
     async function fetchUserFromToken() {
+        if(token=="")
+            return
       try {
         const verifyUserFromToken = await axios.post(
           `${process.env.NEXT_PUBLIC_USERS_API_URL}/verify-user`,
@@ -27,7 +36,7 @@ function VerifyEmail({searchParams}) {
       }
     }
     fetchUserFromToken();
-  }, []);
+  }, [token]);
   return (
     <div className="min-h-screen flex justify-center items-center">
       {isProcessing ? (
