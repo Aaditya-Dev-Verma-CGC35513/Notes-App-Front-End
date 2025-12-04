@@ -67,8 +67,8 @@ function Note({ title, content, id }) {
   }
   return (
     <div
-      className={`flex justify-between w-full ${
-        isCompleted ? "bg-green-300/80" : "bg-black text-gray-100"
+      className={`flex justify-between w-full text-gray-100 ${
+        isCompleted ? "bg-purple-600/30" : "bg-black "
       }
       } ${
         isEditable ? "bg-blue-300/20" : "bg-black"
@@ -142,7 +142,7 @@ function Note({ title, content, id }) {
         />
       </div>
       <div
-        className={`absolute h-0.5 border-2 border-red-700 w-[95%] self-center place-self-center inset-0 ${
+        className={`absolute h-0.5 border-2 border-purple-500 w-[95%] self-center place-self-center inset-0 ${
           isCompleted ? "opacity-100" : "opacity-0"
         } transition duration-200`}
       ></div>
