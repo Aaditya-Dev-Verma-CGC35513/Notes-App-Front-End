@@ -115,7 +115,7 @@ function Home() {
               Home
             </button>
             <button
-              className="button1bg-gray-800 hover:bg-purple-800"
+              className="button1 bg-gray-800 hover:bg-purple-800"
               onClick={() => {
                 router.push("/signup");
               }}
