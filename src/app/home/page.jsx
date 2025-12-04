@@ -163,7 +163,7 @@ function Home() {
             ></textarea>
           </div>
           <button
-            className="bg-black cursor-pointer hover:bg-[#1a1a1a] transition duration-200 p-4 border-l-2 border-b-2 border-purple-950 disabled:cursor-not-allowed"
+            className="bg-black cursor-pointer hover:bg-[#1a1a1a] transition duration-200 p-4 border-l-2 border-b-2 border-purple-950 disabled:cursor-not-allowed text-gray-300 disabled:text-gray-400"
             onClick={handleAddNotes}
             disabled={isButtonDisabled}
           >
