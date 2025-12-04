@@ -8,7 +8,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center max-w-[520px]">
         <div className="flex flex-col gap-8 row-start-2 items-center justify-center pr-4">
           <h1 className="text-4xl font-extrabold md:text-5xl lg:text-6xl text-center leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-500 from-35% via-pink-600 to-purple-600 ">
+            <span className="text-transparent bg-clip-text bg-linear-to-br from-orange-500 from-35% via-pink-600 to-purple-600 ">
               Welcome to SnapNotes
             </span>
           </h1>
@@ -25,14 +25,14 @@ export default function Home() {
         </ol>
         <div className="flex gap-4 items-center flex-col sm:flex-row justify-between w-full px-2">
           <Link
-            className="rounded-2xl border border-solid border-transparent transition-colors flex items-center justify-center text-white bg-gradient-to-r bg-clip-padding from-orange-500 via-pink-600 to-purple-600 gap-2 hover:from-orange-600 hover:via-pink-700 hover:to-purple-700 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto w-full"
+            className="rounded-2xl border border-solid border-transparent transition-colors flex items-center justify-center text-white bg-linear-to-r bg-clip-padding from-orange-500 via-pink-600 to-purple-600 gap-2 hover:from-orange-600 hover:via-pink-700 hover:to-purple-700 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto w-full"
             href="/home"
           >
             Explore Now
           </Link>
           <div className="flex gap-4">
             <Link
-              className="rounded-2xl border border-solid border-transparent transition-colors flex items-center justify-center text-white bg-gradient-to-r bg-clip-padding from-[#6c17b7] to-[#4a00e0] gap-2 hover:bg-gradient-to-r hover:from-[#8d2de2ba] hover:to-[#4b00e0b2] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto order-3 sm:order-2"
+              className="rounded-2xl border border-solid border-transparent transition-colors flex items-center justify-center text-white bg-linear-to-r bg-clip-padding from-[#6c17b7] to-[#4a00e0] gap-2 hover:bg-linear-to-r hover:from-[#8d2de2ba] hover:to-[#4b00e0b2] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto order-3 sm:order-2"
               href="/login"
             >
               <IconLogin2 size={20} />

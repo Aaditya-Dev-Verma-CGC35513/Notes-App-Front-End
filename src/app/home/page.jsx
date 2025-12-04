@@ -15,6 +15,7 @@ function Home() {
   const [fetchingToken, setFetchingToken] = useState(true);
   const [token, setToken] = useState("");
   const router = useRouter();
+  const [draggedIndex, setDraggedIndex] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("access_token");
@@ -57,9 +58,11 @@ function Home() {
   }, []);
   async function handleAddNotes() {
     try {
+      const newNoteOrder = notes.length + 1;
       const newNote = {
         title,
         content,
+        order: newNoteOrder,
       };
       const addNote = await axios.post(
         `${process.env.NEXT_PUBLIC_NOTES_API_URL}/create-note`,
@@ -92,14 +95,54 @@ function Home() {
 
   async function handleLogout() {
     const token = localStorage.getItem("access_token");
-    if(!token) {
+    if (!token) {
       toast.error("You are not logged in");
       return;
-    };
+    }
     setNotes([]);
     localStorage.removeItem("access_token");
     toast.success("User logged out successfully");
     router.push("/login");
+  }
+
+  async function updateNotesOrder(note) {
+    try {
+      const tempNote = JSON.parse(JSON.stringify(note));
+      delete tempNote._id
+      const updateNotesOrder = await axios.post(
+        `${process.env.NEXT_PUBLIC_NOTES_API_URL}/update-notes-order`,
+        tempNote,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            noteId: note._id
+          },
+        }
+      );
+      toast.success(updateNotesOrder.data.message);
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.detail);
+      } else {
+        toast.error(error.message);
+      }
+    }
+  }
+  function handleDrop(note, index) {
+      const newNotes = [...notes];
+      const [draggedNote] = newNotes.splice(draggedIndex, 1);
+      newNotes.splice(index, 0, draggedNote);
+      setNotes(newNotes);
+      setDraggedIndex(null);
+      const notesList = [];
+      note.order = draggedIndex;
+      draggedNote.order = index;
+      notesList.push(note);
+      notesList.push(draggedNote)
+
+      for (let i=0;i<2;i++) {
+        updateNotesOrder(notesList[i]);
+      }
   }
   return (
     <div className="min-h-screen flex justify-center items-center gap-4 flex-col">
@@ -171,13 +214,18 @@ function Home() {
           </button>
         </div>
         <div className="p-2">
-          {notes?.map((note) => (
-            <Note
+          {notes?.map((note, index) => (
+            <div
               key={note._id}
-              title={note.title}
-              content={note.content}
-              id={note._id}
-            />
+              draggable
+              onDragStart={() => setDraggedIndex(index)}
+              onDragOver={(e) => {
+                e.preventDefault();
+              }}
+              onDrop={() => handleDrop(note,index)}
+            >
+              <Note title={note.title} content={note.content} id={note._id} />
+            </div>
           ))}
         </div>
       </div>
