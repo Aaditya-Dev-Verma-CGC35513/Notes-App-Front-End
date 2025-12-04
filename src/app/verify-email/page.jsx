@@ -40,13 +40,13 @@ function VerifyEmail() {
     <div className="min-h-screen flex justify-center items-center">
       {isProcessing ? (
         <h1 className="text-4xl font-extrabold md:text-5xl lg:text-6xl text-center leading-tight">
-          <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-500 from-35% via-pink-600 to-purple-600 ">
+          <span className="text-transparent bg-clip-text bg-linear-to-br from-orange-500 from-35% via-pink-600 to-purple-600 ">
             Parsing Token...
           </span>
         </h1>
       ) : (
         <button
-          className="button1 !p-2 bg-purple-700 !rounded-xl hover:bg-gray-800"
+          className="button1 bg-purple-700 hover:bg-gray-800"
           onClick={() => router.push("/login")}
         >
           Login

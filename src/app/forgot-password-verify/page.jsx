@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
+import axios from "axios";
+import toast from "react-hot-toast";
 
 function ForgotPasswordVerify() {
     const [email, setEmail] = useState("");
@@ -9,7 +11,7 @@ function ForgotPasswordVerify() {
     async function handleSubmit() {
         try {
             const verifyEmailForPassword = await axios.post(
-                `${process.env.NEXT_PUBLIC_USERS_API_URL}/forgot-password-verify`,
+                `${process.env.NEXT_PUBLIC_USERS_API_URL}/forgot-password`,
                 {email},
             )
             toast.success(verifyEmailForPassword.data.message);
@@ -23,25 +25,23 @@ function ForgotPasswordVerify() {
         }
     }
   return (
-    <div className="min-h-screen flex justify-center items-center gap-2 flex-col">
-      <label htmlFor="email">Enter Your Email</label>
-      <input
-        type="email"
-        name="email"
-        placeholder="Enter Email"
-        className="input1"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
+    <div className="min-h-screen flex justify-center items-center gap-8 flex-col text-lg">
+      <section className="flex flex-col gap-4">
+        <label htmlFor="email" className='text-center'>Enter Your Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          className="input1"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+      </section>
       <button
-        type="button"
-        className="button1 bg-purple-700 hover:bg-gray-800 
-              disabled:bg-purple-800
-              disabled:hover:bg-purple-900
-              "
-        disabled={handleSubmit}
+        className="button1 bg-purple-700 hover:bg-gray-800"
+        onClick={handleSubmit}
       >
         Submit
       </button>

@@ -107,7 +107,7 @@ function Home() {
         <div className="flex justify-between w-[330px]">
           <section className="flex justify-end gap-2">
             <button
-              className="button1 !p-2 bg-gray-800 !rounded-xl hover:bg-purple-800"
+              className="button1 bg-gray-800 hover:bg-purple-800"
               onClick={() => {
                 router.push("/");
               }}
@@ -115,7 +115,7 @@ function Home() {
               Home
             </button>
             <button
-              className="button1 !p-2 bg-gray-800 !rounded-xl hover:bg-purple-800"
+              className="button1bg-gray-800 hover:bg-purple-800"
               onClick={() => {
                 router.push("/signup");
               }}
@@ -125,7 +125,7 @@ function Home() {
           </section>
           <section className="flex justify-end gap-2">
             <button
-              className="button1 !p-2 bg-purple-700 !rounded-xl hover:bg-gray-800"
+              className="button1 bg-purple-700 hover:bg-gray-800"
               onClick={() => {
                 router.push("/login");
               }}
@@ -133,7 +133,7 @@ function Home() {
               Login
             </button>
             <button
-              className="button1 !p-2 bg-purple-700 !rounded-xl hover:bg-gray-800"
+              className="button1 bg-purple-700 hover:bg-gray-800"
               onClick={handleLogout}
             >
               Logout
@@ -163,7 +163,7 @@ function Home() {
             ></textarea>
           </div>
           <button
-            className="bg-black cursor-pointer hover:bg-[#1a1a1a] transition duration-200 p-4 border-l-2 border-b-2 border-purple-950 disabled:!text-gray-400 disabled:cursor-not-allowed !text-gray-300"
+            className="bg-black cursor-pointer hover:bg-[#1a1a1a] transition duration-200 p-4 border-l-2 border-b-2 border-purple-950 disabled:cursor-not-allowed"
             onClick={handleAddNotes}
             disabled={isButtonDisabled}
           >

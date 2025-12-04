@@ -119,6 +119,16 @@ function Login() {
             >
               Login
             </button>
+            <button
+              type="button"
+              className="button1 bg-purple-700 hover:bg-gray-800 
+              disabled:bg-purple-800
+              disabled:hover:bg-purple-900
+              "
+              onClick={()=>router.push("/forgot-password-verify")}
+            >
+              Forgot Password
+            </button>
             <section className="flex flex-col gap-3">
               <button
                 type="button"
@@ -146,7 +156,7 @@ function Login() {
             size={25}
             className={`${
               isPasswordVisible ? "hidden" : "block"
-            } icon -translate-y-8`}
+            } icon -translate-y-16`}
             onClick={() => {
               setIsPasswordVisible(!isPasswordVisible);
             }}
@@ -155,7 +165,7 @@ function Login() {
             size={25}
             className={`${
               isPasswordVisible ? "block" : "hidden"
-            } icon -translate-y-8`}
+            } icon -translate-y-16`}
             onClick={() => {
               setIsPasswordVisible(!isPasswordVisible);
             }}
