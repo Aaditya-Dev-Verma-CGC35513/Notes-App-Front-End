@@ -12,6 +12,7 @@ function Note({ title, content, id }) {
   const { notes, setNotes } = useNoteStore();
   const [newTitle, setNewTitle] = useState(title);
   const [newContent, setNewContent] = useState(content);
+  const [isNoteHovered, setIsNoteHovered] = useState(false);
   async function handleDelete(id) {
     try {
       const deleteNote = await axios.delete(
@@ -72,7 +73,13 @@ function Note({ title, content, id }) {
       }
       } ${
         isEditable ? "bg-blue-300/20" : "bg-black"
-      } px-4 py-2 rounded-lg transition duration-200 relative mt-2 `}
+      } px-4 py-2 rounded-lg transition duration-200 relative mt-2`}
+      onMouseEnter={() => {
+        setIsNoteHovered(true);
+      }}
+      onMouseLeave={() => {
+        setIsNoteHovered(false);
+      }}
     >
       <div className="flex gap-4 z-10 ">
         <input
@@ -105,7 +112,7 @@ function Note({ title, content, id }) {
           </div>
         )}
       </div>
-      <div className="flex gap-2">
+      <div className={`flex gap-2 ${isNoteHovered ? "opacity-100" : "opacity-0"} transition duration-200`}>
         <IconCheck
           className={`${
             isEditable
