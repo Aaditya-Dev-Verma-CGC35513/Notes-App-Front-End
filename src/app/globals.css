@@ -37,3 +37,8 @@ body {
   @apply cursor-pointer font-bold transition duration-200 p-2 rounded-xl text-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed
 }
 
+/* globals.css */
+input:-webkit-autofill,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #f3e8ff inset !important;
+}
