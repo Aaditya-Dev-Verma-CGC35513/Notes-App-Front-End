@@ -26,7 +26,7 @@ body {
 }
 
 .icon {
-  @apply transition duration-200 opacity-70 hover:opacity-100 cursor-pointer;
+  @apply transition duration-200 opacity-40 hover:opacity-100 cursor-pointer;
 }
 
 .input1{
