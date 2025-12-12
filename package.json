@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "link:qrcode": "npm link @git/qrcodescanner"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.35.0",
+    "qrcodescanner":"git+https://github.com/Aaditya-Dev-Verma-CGC35513/QR-Code-Scanner-pkg.git#pkg-react-qr-code-reader",
     "axios": "^1.13.2",
     "fs": "^0.0.1-security",
     "https": "^1.0.0",
