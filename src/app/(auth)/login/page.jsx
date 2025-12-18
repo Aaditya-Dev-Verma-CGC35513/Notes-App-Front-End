@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
+import add1 from "add1/dist/add1"
 
 function Login() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -14,6 +15,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [fetchingToken, setFetchingToken] = useState(true);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  console.log(add1(4,5))
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     if (token) {

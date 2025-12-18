@@ -6,17 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "qrcodepkg/jsqr": "npm install github:Aaditya-Dev-Verma-CGC35513/qr-code-scanner-pkg#pkg-jsqr --legacy-peer-deps",
+    "qrcodepkg/react-qr-reader": "npm install github:Aaditya-Dev-Verma-CGC35513/qr-code-scanner-pkg#pkg-react-qr-reader --legacy-peer-deps",
+    "removeqrcodepkg": "npm uninstall qr-code-scanner-pkg --legacy-peer-deps"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.35.0",
     "axios": "^1.13.2",
     "fs": "^0.0.1-security",
     "https": "^1.0.0",
+    "jsqr": "^1.4.0",
     "next": "^16.0.7",
+    "qr-code-scanner-pkg": "github:Aaditya-Dev-Verma-CGC35513/qr-code-scanner-pkg#pkg-jsqr",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hot-toast": "^2.6.0",
+    "react-qr-reader": "^3.0.0-beta-1",
     "zustand": "^5.0.8"
   },
   "devDependencies": {

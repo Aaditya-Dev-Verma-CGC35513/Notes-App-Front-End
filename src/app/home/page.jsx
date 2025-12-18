@@ -147,7 +147,7 @@ function Home() {
   return (
     <div className="min-h-screen flex justify-center items-center gap-4 flex-col">
       {token && (
-        <div className="flex justify-between w-[330px]">
+        <div className="flex justify-between w-82.5">
           <section className="flex justify-end gap-2">
             <button
               className="button1 bg-gray-800 hover:bg-purple-800"
